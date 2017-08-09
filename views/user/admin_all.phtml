@@ -1,0 +1,34 @@
+<h2>All user</h2>
+
+
+
+    <table class="table table-striped" style="400px">
+        <tr>
+            <td width="5%">#</td>
+            <td width="20%">login</td>
+            <td width="20%">email</td>
+            <td width="20%">role</td>
+            <td width="15%">password</td>
+            <td width="15%">is_active</td>
+            <td width="5%">edit</td>
+        </tr>
+		<?php foreach ( $data['user'] as $row ): ?>
+
+            <tr>
+                <td><?= $row['id'] ?></td>
+                <td><?= $row['login'] ?></td>
+                <td><?= $row['email'] ?></td>
+                <td><?= $row['role'] ?></td>
+                <td><?= $row['password'] ?></td>
+                <td><input type="checkbox" <?php if ( $row['is_active'] == 1 ) {  ?> checked="checked"<?php } ?>>
+                </td>
+                <td>
+                    <a href="/admin/user/edit/<?= $row['id'] ?>">
+                        <input type="submit" class="btn btn-sm btn-primary" value="Edit">
+                    </a>
+                </td>
+            </tr>
+		<?php endforeach; ?>
+    </table>
+
+

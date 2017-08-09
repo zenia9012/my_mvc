@@ -1,0 +1,81 @@
+<?php
+$router     = new Router( $_SERVER['REQUEST_URI'] );
+$link       = new MyFunction();
+$changeLang = $link->getLang( $router->getUri() );
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="привет">
+    <script src="../webroot/lib/jquery/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../webroot/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <title><?= Config::get( 'site_name' ) ?></title>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="navbar-header">
+                    <a class="navbar-brand"
+                       href="/<?= $router->getLanguage() ?>/page/"><?= Config::get( 'site_name' ) ?></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" style="margin: 0 0 0 50px">
+                        <li>
+                            <a <?php if ( App::getRouter()->getController() == 'page' ) : ?> class="active" <?php endif; ?>
+                                    href="/<?= $router->getLanguage() ?>/page/"><?php echo __( 'home_page', 'Main' ); ?></a>
+                        </li>
+                        <li>
+                            <a <?php if ( App::getRouter()->getController() == 'contact' ) : ?> class="active" <?php endif; ?>
+                                    href="/<?= $router->getLanguage() ?>/contact/"><?php echo __( 'contact', 'Feedback' ); ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lang" style="float: right;">
+                    <a class="navbar-brand lang"
+                       href="<?= $changeLang ?>"><?= __( 'change_lang', 'Change Language' ) ?></a>
+                    <a class="navbar-brand register"
+                       href="/<?= $router->getLanguage() ?>/user/register_user"><?= __( 'register', 'Change Language' ) ?></a>
+                    <a class="navbar-brand lang"  href="/admin/page/">Admin Panel</a>
+                    <a class="navbar-brand lang"  href="/admin/user/login">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="starter-template" style="margin-top: 200px">
+				<?= $data['content'] ?>
+				<?php // echo __( 'lng.test', 'default value' ); ?>
+            </div>
+        </div>
+    </div>
+
+	<?php if ( Session::hasUserMessage(){Session::echoMessage()} ) ?>
+
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<script src="../../webroot/js/admin.js"></script>
+
+<h2>List of all message</h2>
+
+<table class="table table-striped" style="400px">
+    <tr>
+        <td width="5%">#</td>
+        <td width="20%">name</td>
+        <td width="20%">email</td>
+        <td width="35%">message</td>
+        <td width="10%">edit</td>
+        <td width="10%">delete</td>
+    </tr>
+	<?php foreach ( $data['message'] as $row ): ?>
+
+        <tr>
+            <td><?= $row['id'] ?></td>
+            <td><?= $row['name'] ?></td>
+            <td><?= $row['email'] ?></td>
+            <td><?= $row['message'] ?></td>
+            <td >
+                <a href="/admin/contact/edit/<?= $row['id'] ?>">
+                    <button class="btn btn-sm btn-primary">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="/admin/contact/delete/<?= $row['id'] ?>" onclick="return confirmDelete()">
+                    <button class="btn btn-sm btn-warning">delete</button>
+                </a>
+            </td>
+        </tr>
+
+	<?php endforeach; ?>
+</table>

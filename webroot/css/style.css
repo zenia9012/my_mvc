@@ -1,0 +1,9 @@
+.navbar .container .lang  a{
+    display: block;
+    float: right;
+}
+
+body{
+    background-color: #222222;
+    color: red;
+}

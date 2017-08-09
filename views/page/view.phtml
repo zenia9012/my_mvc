@@ -1,0 +1,18 @@
+
+<?php if ( $data['alias'] ): ?>
+    <ul>
+
+		<?php foreach ( $data['alias'] as $key => $value ) : ?>
+			<h2><?php echo $value['title'] ?></h2>
+			<p><?php echo $value['alias'] ?></p>
+			<p><?php echo $value['content'] ?></p>
+            <img src="<?php echo $value['img']?>" alt="" width="100">
+
+
+		<?php endforeach; ?>
+        
+    </ul>
+<?php endif; ?>
+
+
+<a href="/page/">return to list of page</a>

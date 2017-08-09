@@ -1,0 +1,29 @@
+<?php
+$router = new Router( $_SERVER['REQUEST_URI'] );
+?>
+
+<h3>Registration</h3>
+
+<form action="" method="post">
+    <div class="form-group">
+        <label for="login">Your Login</label>
+        <input type="text" class="form-control" id="login" placeholder="Your name" name="login" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="r_email" required>
+    </div>
+    <div class="form-group">
+        <label for="pass">Type your password</label>
+        <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required>
+    </div>
+    <div class="form-group">
+        <label for="confimPass">Confirm your password</label>
+        <input type="password" class="form-control" id="confimPass" placeholder="Repeat your password"
+               name="confirmPass" required>
+    </div>
+
+
+    <input type="submit" class="btn btn-default" value="Send">
+</form>
+

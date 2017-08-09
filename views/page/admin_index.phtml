@@ -1,0 +1,31 @@
+<script src="../../webroot/js/admin.js"></script><script src="../../webroot/js/admin.js"></script>
+
+<h3>Pages</h3>
+
+<table class="table table-striped" style="400px">
+	<?php foreach ( $data['pages'] as $row ): ?>
+
+        <tr>
+            <td><?= $row['title'] ?></td>
+            <td align="right">
+                <a href="/admin/page/edit/<?= $row['id'] ?>">
+                    <button class="btn btn-sm btn-primary">Edit</button>
+                </a>
+                <a href="/admin/page/delete/<?= $row['id'] ?>" onclick="return confirmDelete()">
+                    <button  class="btn btn-sm btn-warning">delete</button>
+                </a>
+            </td>
+            <td><?= $row['content'] ?></td>
+            <td><?= $row['alias'] ?></td>
+        </tr>
+
+	<?php endforeach; ?>
+</table>
+
+<br>
+
+<div>
+    <a href="/admin/page/add/">
+        <button class="btn btn-sm btn-success">Add new page</button>
+    </a>
+</div>

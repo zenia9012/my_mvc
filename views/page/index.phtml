@@ -1,0 +1,21 @@
+<?php
+$router = new Router($_SERVER['REQUEST_URI']);
+$link = new MyFunction();
+$changeLang = $link->getLang($router->getUri());
+?>
+
+<h1>List of page</h1>
+<br>
+<br>
+<br>
+<br>
+
+<?php if ( $data['pages'] ): ?>
+    <ul>
+
+		<?php foreach ( $data['pages'] as $key => $value ) : ?>
+            <li class="btn"><a href="/<?=$router->getLanguage()?>/page/view/<?php echo $value['alias'] ?>"><?php echo $value['title'] ?></a></li>
+		<?php endforeach; ?>
+
+    </ul>
+<?php endif; ?>
